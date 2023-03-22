@@ -23,6 +23,11 @@
 		compatible = "gpio-leds";
 
 
+		modem_reset {
+                        label = "modem_reset";
+                        gpios = <&gpio1 18 GPIO_ACTIVE_HIGH>;
+                        default-state = "on";
+		};
                 wisun_reset {
                         label = "wisun_reset";
                         gpios = <&gpio1 21 GPIO_ACTIVE_HIGH>;
@@ -69,6 +74,9 @@
 	user_leds_s0: user_leds_s0 {
 		pinctrl-single,pins = <
 			AM33XX_PADCONF(AM335X_PIN_GPMC_A5, PIN_OUTPUT, MUX_MODE7) /* (V15) gpmc_a5.gpio1[21] - Wi-SUN Board RESET Active Low , make high before use */
+
+			AM33XX_PADCONF(AM335X_PIN_GPMC_A1, PIN_OUTPUT, MUX_MODE7) /* gpio49 */
+			AM33XX_PADCONF(AM335X_PIN_GPMC_A2, PIN_OUTPUT, MUX_MODE7) /* gpio50 for 3G RESET */
 
 			AM33XX_PADCONF(AM335X_PIN_GPMC_ADVN_ALE, PIN_OUTPUT, MUX_MODE7) /* (R7) gpmc_advn_ale.gpio2[2]  */
 			AM33XX_PADCONF(AM335X_PIN_GPMC_OEN_REN, PIN_OUTPUT, MUX_MODE7) /* (T7) gpmc_oen_ren.gpio2[3]  */
